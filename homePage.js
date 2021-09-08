@@ -11,7 +11,7 @@ function toggleMenu(){
 setInterval(()=>{
     const time = document.querySelector("#time");
     let muda = new Date();
-    var days = ["Jumapili", "Jumatatu", "Jumanne", "Jumatato", "Alhamisi", "Ijumaa", "Jumamosi"];
+    var days = ["Jumapili", "Jumatatu", "Jumanne", "Jumatano", "Alhamisi", "Ijumaa", "Jumamosi"];
     var months = [1,2,3,4,5,6,7,8,9,10,11,12];
     let day = days[muda.getDay()];    
     let date = muda.getDate();
@@ -22,7 +22,7 @@ setInterval(()=>{
     let seconds = muda.getSeconds();
     let day_night = "ASUBUHI"
 
-    if (hours >= 12) {
+    if (hours >= 12 && hours < 15) {
         day_night = "MCHANA";
         
     }
@@ -31,13 +31,13 @@ setInterval(()=>{
     else if (hours == 15){
         day_night = "ALASIRI";
     }
-    else if (hours > 15) {
+    else if (hours > 15 && hours < 19) {
         day_night = "JIONI";
     }
     else if (hours >= 19){
         day_night = "USIKU"
     }
-    else {
+    else if (hours < 10){
         hours = "0" + hours;
     }
      
@@ -50,7 +50,7 @@ setInterval(()=>{
         seconds = "0" + seconds;
     }
 
-    time.textContent = day + " " + date + " " + month + " " + year + " Saa " + hours + ":" + minutes + ":" + seconds + " " + day_night;
+    time.textContent = day + " : " + date + " /" + month + " /" + year + " Saa " + hours + ":" + minutes + ":" + seconds + " " + day_night;
 });
 
 
